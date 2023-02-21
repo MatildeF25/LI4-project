@@ -1,0 +1,38 @@
+﻿@page
+@model FairTrade.Pages.Vendedores.IndexModel
+@{
+}
+
+
+<br />
+<h2>Lista de Vendedores</h2>
+<a class='btn btn-primary btn-sm' href='/Vendedores/Registar'>Novo Vendedor</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Nome</th>
+            <th>Rating</th>
+            <th>ID da Feira</th>
+            <th>Opção</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listVendedores)
+        {
+            <tr>
+                <td>@item.username</td>
+                <td>@item.nome</td>
+                <td>@item.rating</td>
+                <td>@item.id_feira</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Vendedores/Vendedor?id=@item.id"> Aceder</a>
+                    <a class="btn btn-danger btn-sm" href="/Vendedores/Eliminar?id=@item.id"> Eliminar</a>
+                    
+                </td>
+                
+
+            </tr>
+        }
+    </tbody>
+</table>

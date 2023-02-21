@@ -1,0 +1,104 @@
+﻿  @page
+@model FairTrade.Pages.Vendedores.RegistarModel
+@{
+}
+
+<br/>
+<h2>Novo Vendedor</h2>
+
+@if (Model.erro.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>@Model.erro</strong>
+        <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='Close'></button>
+    </div>
+}
+
+
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Username</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="username" value="@Model.vendedorInfo.username"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nome</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="nome" value="@Model.vendedorInfo.nome" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email" value="@Model.vendedorInfo.email" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Palavra-passe</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="password" value="@Model.vendedorInfo.password" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Rating (Placeholder)</label>
+        <div class="col-sm-6">
+            <input type="number" id= "rating" class="form-control" name="rating" min="0" max="5" value="@Model.vendedorInfo.rating" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Modo de pagamento</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="modo_pagamento" value="@Model.vendedorInfo.metodo_pagamento" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Funcionário</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="funcionario" value="@Model.vendedorInfo.funcionario"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">ID da Feira</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="id_feira" value="@Model.vendedorInfo.id_feira" />
+        </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Link da Foto</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="foto" value="@Model.vendedorInfo.foto" />
+        </div>
+    </div>
+
+    @if (Model.sucesso.Length > 0)
+    {
+        <div class="row-mb-3">
+            <div class="col-sm-9">
+                <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                    <strong>@Model.sucesso</strong>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submeter</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Vendedores" role="button">Cancelar</a>
+        </div>
+    </div> 
+
+
+
+
+
+</form>

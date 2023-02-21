@@ -1,0 +1,40 @@
+﻿@page
+@model FairTrade.Pages.Feiras.IndexModel
+@{
+}
+
+
+<br />
+<h2>Lista de Feiras</h2>
+@*<a class='btn btn-primary btn-sm' href='/Feiras/Registar'>Nova Feira</a>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Região</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listFeiras)
+        {
+            <tr>
+                <td>@item.nome</td>
+                <td>@item.descricao</td>
+                <td>@item.regiao</td>
+                <td>@item.categoria</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Feiras/Feira?id=@item.id"> Aceder</a>
+                    
+                     @* 
+                      <a class="btn btn-secondary btn-sm" href="/Feiras/Editar?id=@item.id"> Editar</a> >
+                      <a class="btn btn-danger btn-sm" href="/Feiras/Eliminar?id=@item.id"> Eliminar</a>
+                    *@
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

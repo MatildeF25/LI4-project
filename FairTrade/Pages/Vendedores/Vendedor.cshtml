@@ -1,0 +1,83 @@
+﻿@page
+@model FairTrade.Pages.Vendedores.VendedorModel
+@{
+}
+<br>
+<h2>Perfil de vendedor!</h2>
+<br />
+
+@if (Model.erro.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>@Model.erro</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+
+<br />
+
+
+
+
+<div class="hero-sec">
+
+
+    <div class="products">
+            <div class="card">
+                <div class="Title">
+                    @Model.vendedorInfo.nome
+                </div>
+                <div class="image">
+                    <img src="@Model.vendedorInfo.foto" />
+                </div>
+            </div>
+    </div>
+
+    <div class="vendedor-info">
+        <div class="all-info">
+            <div class="infos">Rating: @Model.vendedorInfo.rating</div>
+            <div class="infos">Email: @Model.vendedorInfo.email</div>
+            <div class="infos">Nome: @Model.vendedorInfo.nome</div>
+            <div class="infos">Feira Associada: <a href="/Feiras/Feira?id=@Model.vendedorInfo.id_feira">@Model.feiraInfo.nome</a></div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<h2>Lista de Produtos</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Rating</th>
+            <th>Tipo</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listProdutos)
+        {
+            <tr>
+                <td>@item.nome</td>
+                <td>@item.descricao</td>
+                <td>@item.preco</td>
+                <td>@item.rating</td>
+                <td>@item.tipo</td>
+                <td>@item.stock</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Produto?id=@item.id"> Aceder</a>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

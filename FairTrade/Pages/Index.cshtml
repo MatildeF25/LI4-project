@@ -1,0 +1,64 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+*@
+
+<section class="container">
+	<div class="slider-wrapper">
+		<h3>Sugestão de Feiras</h3>
+		<div class="slider">
+			<div class="img-1">
+				<img id="slide-1" src="https://www.lisbonguru.com/wp-content/uploads/2017/09/feira-ladra-panteao.png" alt="3D rendering of an imaginary orange planet in space" />
+				<a class="i1" href="/Feiras/Feira?id=3">Feira da Ladra</a>
+			</div>
+			<div class="img-2">
+				<img id="slide-2" src="https://bomdia.eu/wp-content/uploads/2017/05/feira-livro-lisboa.jpg" alt="3D rendering of an imaginary green planet in space" />
+				<a class="i2" href="/Feiras/Feira?id=5" id="2">Feira do Livro</a>
+			</div>
+			<div class="img-3">
+				<img id="slide-3" src="https://echoboomer.pt/wp-content/uploads/2022/06/mercado-medieval-de-obidos-2022.jpg" alt="3D rendering of an imaginary blue planet in space" />
+				<a class="i3" href="/Feiras/Feira?id=6" id="3">Feira da Cebola</a>
+			</div>
+		</div>
+		<div class="slider-nav">
+			<a href="#slide-1"></a>
+			<a href="#slide-2"></a>
+			<a href="#slide-3"></a>
+		</div>
+	</div>
+</section>
+
+<script>
+	
+	const slides = document.querySelectorAll('.img-1,.img-2,.img-3');
+	const textElements = document.querySelectorAll('.i1,.i2,.i3');
+	let currentSlide = 0;
+
+	textElements.forEach((text, i) => {
+		if (i !== currentSlide) {
+			text.style.visibility = 'hidden';
+		}
+	});
+
+	function nextSlide() {
+		textElements[currentSlide].style.visibility = 'hidden';
+		currentSlide = (currentSlide + 1) % slides.length;
+		textElements[currentSlide].style.visibility = 'visible';
+	}
+
+	const nextButton1 = document.querySelector('a[href="#slide-1"]');
+	const nextButton2 = document.querySelector('a[href="#slide-2"]');
+	const nextButton3 = document.querySelector('a[href="#slide-3"]');
+	nextButton1.addEventListener('click', nextSlide);
+	nextButton2.addEventListener('click', nextSlide);
+	nextButton3.addEventListener('click', nextSlide);
+
+
+</script>
